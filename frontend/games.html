@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ADHD Games</title>
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <style>
+        body {
+            background: #f4f6fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        #rules {
+            margin: 15px 0 25px;
+            line-height: 1.6;
+            white-space: pre-line;
+            color: #444;
+        }
+
+        #playBtn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #playBtn:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+
+        canvas {
+            display: block;
+            margin: 30px auto 0;
+            background: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 id="title">Game</h2>
+        <div id="rules">Read the rules carefully.</div>
+
+        <button id="playBtn">Play</button>
+
+        <canvas id="game" width="700" height="500"></canvas>
+    </div>
+
+    <!-- GAME LOGIC FILES -->
+    <script src="static/js/adaptive_pilot.js"></script>
+    <script src="static/js/flash_reaction.js"></script>
+    <script src="static/js/steady_shield.js"></script>
+
+    <!-- FLOW CONTROLLER (VERY IMPORTANT: LOAD LAST) -->
+    <script src="static/js/flow.js"></script>
+
+</body>
+
+</html>

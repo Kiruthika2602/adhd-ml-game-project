@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ADHD Screening Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            max-width: 700px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .score {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2 id="probability">Loading...</h2>
+
+        <div id="scores"></div>
+
+        <p class="result" id="finalResult"></p>
+
+        <canvas id="chart" height="280"></canvas>
+
+        <p class="disclaimer" id="disclaimer"></p>
+    </div>
+
+    <script>
+        const raw = localStorage.getItem("finalResult");
+
+        if (!raw) {
+            document.getElementById("probability").innerText =
+                "No result found. Please complete the assessment first.";
+        } else {
+            const data = JSON.parse(raw);
+
+            document.getElementById("probability").innerText =
+                `ADHD Probability: ${data.probability}%`;
+
+            document.getElementById("scores").innerHTML = `
+            <p class="score">Inattention Score: ${data.scores.inattention} / 9</p>
+            <p class="score">Hyperactivity Score: ${data.scores.hyperactivity} / 9</p>
+            <p class="score">Impulsivity Score: ${data.scores.impulsivity} / 9</p>
+            <p class="score"><b>Symptom Sum:</b> ${data.symptom_sum} / 27</p>
+        `;
+
+            document.getElementById("finalResult").innerText = data.result_text;
+            document.getElementById("disclaimer").innerText = data.disclaimer;
+
+            new Chart(document.getElementById("chart"), {
+                type: "bar",
+                data: {
+                    labels: ["Inattention", "Hyperactivity", "Impulsivity"],
+                    datasets: [{
+                        label: "Behavioral Scores",
+                        data: [
+                            data.scores.inattention,
+                            data.scores.hyperactivity,
+                            data.scores.impulsivity
+                        ],
+                        backgroundColor: ["#ff7675", "#74b9ff", "#55efc4"]
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 9
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6fa;
+    color: #333;
+}
+
+/* =========================
+   CONTAINER
+   ========================= */
+.container {
+    max-width: 720px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* =========================
+   HEADINGS & TEXT
+   ========================= */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+ul {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* =========================
+   INPUTS & SELECTS
+   ========================= */
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* =========================
+   CHECKBOXES
+   ========================= */
+label {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+label input {
+    width: auto;
+    margin-right: 6px;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+button {
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #357abd;
+}
+
+/* =========================
+   GAME PAGE
+   ========================= */
+#rules {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* =========================
+   RESULT PAGE
+   ========================= */
+.box {
+    background: #ffffff;
+    padding: 25px;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}
