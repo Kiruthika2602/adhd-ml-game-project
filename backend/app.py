@@ -12,7 +12,7 @@ sys.path.append(PROJECT_ROOT)
 from scoring.inattention import calculate_inattention
 from scoring.impulsivity import calculate_impulsivity
 from scoring.hyperactivity import calculate_hyperactivity
-from prediction.predict import predict_adhd
+from backend.prediction.predict import predict_adhd
 
 # ----------------------------
 # FLASK CONFIG
